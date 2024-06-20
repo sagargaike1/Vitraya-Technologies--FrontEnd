@@ -1,0 +1,8 @@
+<input type="file" (change)="onFileSelected($event)">
+<button (click)="uploadImage()">Upload</button>
+<div *ngIf="imageDetails">
+  <img [src]="'data:image/jpeg;base64,' + imageDetails.base64Image" alt="Uploaded Image">
+  <div *ngFor="let text of imageDetails.extractedTexts">
+    <span [style.font-weight]="text.bold ? 'bold' : 'normal'">{{ text.text }}</span>
+  </div>
+</div>
